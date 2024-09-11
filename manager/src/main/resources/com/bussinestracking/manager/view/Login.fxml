@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bussinestracking.controller.LoginController">
+   <children>
+      <ImageView fitHeight="426.0" fitWidth="430.0" layoutX="-31.0" layoutY="-24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/store-4156934_1280.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="386.0" prefHeight="400.0" prefWidth="214.0" style="-fx-background-color: white;">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="41.0" prefHeight="29.0" prefWidth="214.0" text="Gestor de negocios">
+               <font>
+                  <Font name="Yu Gothic UI Regular" size="24.0" />
+               </font>
+            </Label>
+            <VBox layoutX="14.0" layoutY="108.0" prefHeight="280.0" prefWidth="182.0">
+               <children>
+                  <Label prefHeight="54.0" prefWidth="218.0" text="Nombre de Usuario">
+                     <font>
+                        <Font name="Yu Gothic UI Regular" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="userField" prefHeight="42.0" prefWidth="182.0" promptText="Usuario">
+                     <font>
+                        <Font name="Yu Gothic UI Regular" size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label prefHeight="54.0" prefWidth="218.0" text="Contraseña">
+                     <font>
+                        <Font name="Yu Gothic UI Regular" size="14.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="passField" prefHeight="42.0" prefWidth="182.0" promptText="Contraseña" />
+                  <Button minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#menuView" style="-fx-background-color: #1292B5;" text="Iniciar Sesión" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="40.0" right="10.0" top="30.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Yu Gothic UI Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

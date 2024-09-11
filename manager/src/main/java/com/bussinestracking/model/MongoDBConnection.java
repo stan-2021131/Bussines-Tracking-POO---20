@@ -1,23 +1,23 @@
 package com.bussinestracking.model;
 
+import com.mongodb.MongoException;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
 public class MongoDBConnection {
-    private final MongoClient mongoClient;
-    private final MongoDatabase database;
+    private static MongoDatabase database;
+    private static MongoClient mongoClient;
 
-    public MongoDBConnection(String url, String nombredb) {
-        mongoClient = MongoClients.create(url);
-        database = mongoClient.getDatabase(nombredb);
+    public static void conexion(){
+        String uri = "mongodb+srv://Tan2004:Jimena2014@cluster0.g6slc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+        mongoClient = MongoClients.create(uri);
+        database = mongoClient.getDatabase("BussinesTracking");
     }
-
-    public MongoDatabase getDatabase() {
+    public static MongoDatabase getDatabase() {
         return database;
     }
 
-    public void close() {
+    public static void close() {
         mongoClient.close();
     }
-
 }
