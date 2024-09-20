@@ -21,7 +21,7 @@ public class MenuController implements Initializable {
     public void usersView() {
         principalPage.userView();
     }
-
+    public void inventario() {principalPage.inventarioView();}
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

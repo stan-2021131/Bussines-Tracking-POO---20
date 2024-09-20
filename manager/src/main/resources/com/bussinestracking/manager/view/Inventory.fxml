@@ -12,8 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bussinestracking.controller.InventarioController">
    <children>
       <SplitPane dividerPositions="0.8288152610441767" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
         <items>
@@ -53,7 +52,7 @@
                               <Insets top="12.0" />
                            </HBox.margin>
                         </TextField>
-                        <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="78.0" style="-fx-background-color: red;" text="Menú" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#principalStage" prefHeight="32.0" prefWidth="78.0" style="-fx-background-color: red;" text="Menú" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="100.0" top="12.0" />
                            </HBox.margin>

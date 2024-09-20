@@ -1,9 +1,6 @@
 package com.bussinestracking.manager;
 
-import com.bussinestracking.controller.HelloController;
-import com.bussinestracking.controller.LoginController;
-import com.bussinestracking.controller.MenuController;
-import com.bussinestracking.controller.UserController;
+import com.bussinestracking.controller.*;
 import com.bussinestracking.model.MongoDBConnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -56,6 +53,15 @@ public class HelloApplication extends Application {
         try {
             UserController ventanaUsers = (UserController)cambiarEscena("Users.fxml", 597,366);
             ventanaUsers.setPrincipalPage(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void inventarioView(){
+        try{
+            InventarioController ventanaInventario = (InventarioController)cambiarEscena("Inventory.fxml", 600, 400);
+            ventanaInventario.setPrincipalStage(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
