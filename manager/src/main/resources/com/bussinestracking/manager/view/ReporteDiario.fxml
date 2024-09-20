@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #81c4e0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView layoutX="12.0" layoutY="100.0" prefHeight="200.0" prefWidth="575.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Producto" />
+          <TableColumn prefWidth="75.0" text="cantidad vendida" />
+            <TableColumn prefWidth="75.0" text="Precio de venta" />
+            <TableColumn prefWidth="75.0" text="Total" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bfe188" height="82.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <Label layoutX="219.0" layoutY="26.0" text="Reporte Diario">
+         <font>
+            <Font name="Rockwell" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="333.0" text="Caja">
+         <font>
+            <Font name="Bookman Old Style" size="19.0" />
+         </font>
+      </Label>
+      <TextField layoutX="86.0" layoutY="332.0" />
+   </children>
+</AnchorPane>
