@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="304.0" prefWidth="494.0" style="-fx-background-color: #498B6D;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bussinestracking.manager.view.Ventas">
+<AnchorPane prefHeight="304.0" prefWidth="494.0" style="-fx-background-color: #498B6D;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bussinestracking.controller.ComprasController">
    <children>
       <Label layoutX="260.0" layoutY="29.0" text="COMPRAS">
          <font>

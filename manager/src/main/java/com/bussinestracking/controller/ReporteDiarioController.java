@@ -5,22 +5,22 @@ import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class InventarioController implements Initializable {
+public class ReporteDiarioController implements Initializable {
     private HelloApplication principalStage;
 
     public HelloApplication getPrincipalStage() {
         return principalStage;
     }
 
-    public void principalStage(){
-        principalStage.menuView();
-    }
-
     public void setPrincipalStage(HelloApplication principalStage) {
         this.principalStage = principalStage;
     }
 
+    public void principalStage(){
+        principalStage.menuView();
+    }
+
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources){
     }
 }

@@ -60,8 +60,35 @@ public class HelloApplication extends Application {
 
     public void inventarioView(){
         try{
-            InventarioController ventanaInventario = (InventarioController)cambiarEscena("Inventory.fxml", 600, 400);
+            InventarioController ventanaInventario = (InventarioController)cambiarEscena("Inventarios.fxml", 600, 400);
             ventanaInventario.setPrincipalStage(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void reporteDiarioView(){
+        try{
+            ReporteDiarioController ventanaReporteDiario = (ReporteDiarioController)cambiarEscena("ReporteDiario.fxml", 600, 400);
+            ventanaReporteDiario.setPrincipalStage(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void ventasView(){
+        try{
+            VentasController ventanaVentas = (VentasController)cambiarEscena("Ventas.fxml", 600, 400);
+            ventanaVentas.setPrincipalStage(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void comprasView(){
+        try{
+            ComprasController ventanaCompras = (ComprasController)cambiarEscena("COMPRAS.fxml", 600, 400);
+            ventanaCompras.setPrincipalStage(this);
         } catch (Exception e) {
             e.printStackTrace();
         }

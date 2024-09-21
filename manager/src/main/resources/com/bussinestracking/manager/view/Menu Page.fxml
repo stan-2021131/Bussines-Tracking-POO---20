@@ -43,12 +43,12 @@
                   </VBox>
                   <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                      <children>
-                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: blue;" text="Ventas" textAlignment="CENTER" textFill="WHITE">
+                        <Label alignment="CENTER" onMouseClicked="#ventasView" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: blue;" text="Ventas" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Yu Gothic UI Bold" size="20.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="139.0" fitWidth="301.0" pickOnBounds="true">
+                        <ImageView fitHeight="139.0" fitWidth="301.0" onMouseClicked="#ventasView" pickOnBounds="true">
                            <image>
                               <Image url="@Images/ventas-personales-mujer-vendedora-1920x1280.jpg" />
                            </image>
@@ -57,12 +57,12 @@
                   </VBox>
                   <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                      <children>
-                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #00BF63;" text="Reporte diario" textAlignment="CENTER" textFill="WHITE">
+                        <Label alignment="CENTER" onMouseClicked="#reporteDiarioView" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #00BF63;" text="Reporte diario" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Yu Gothic UI Bold" size="20.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="141.0" fitWidth="301.0" pickOnBounds="true">
+                        <ImageView fitHeight="141.0" fitWidth="301.0" onMouseClicked="#reporteDiarioView" pickOnBounds="true">
                            <image>
                               <Image url="@Images/images.jpg" />
                            </image>
@@ -71,12 +71,12 @@
                   </VBox>
                   <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #004AAD;" text="Compras" textAlignment="CENTER" textFill="WHITE">
+                        <Label alignment="CENTER" onMouseClicked="#comprasView" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #004AAD;" text="Compras" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Yu Gothic UI Bold" size="20.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="139.0" fitWidth="301.0" pickOnBounds="true">
+                        <ImageView fitHeight="139.0" fitWidth="301.0" onMouseClicked="#comprasView" pickOnBounds="true">
                            <image>
                               <Image url="@Images/product-package-boxes-shopping-bag-cart-with-laptop-online-shopping-delivery-concept-scaled-1.jpeg" />
                            </image>

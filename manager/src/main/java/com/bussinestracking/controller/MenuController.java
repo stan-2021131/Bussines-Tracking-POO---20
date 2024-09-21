@@ -21,7 +21,18 @@ public class MenuController implements Initializable {
     public void usersView() {
         principalPage.userView();
     }
-    public void inventario() {principalPage.inventarioView();}
+    public void inventario() {
+        principalPage.inventarioView();
+    }
+    public void reporteDiarioView() {
+        principalPage.reporteDiarioView();
+    }
+    public void ventasView() {
+        principalPage.ventasView();
+    }
+    public void comprasView() {
+        principalPage.comprasView();
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
