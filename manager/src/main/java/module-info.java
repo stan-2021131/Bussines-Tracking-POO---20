@@ -14,4 +14,5 @@ module com.bussinestracking.manager {
     exports com.bussinestracking.manager;
     exports com.bussinestracking.controller to javafx.fxml;
     opens com.bussinestracking.controller to javafx.fxml;
+    opens com.bussinestracking.model to javafx.base;
 }

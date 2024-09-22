@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -20,7 +21,7 @@
                   <Font name="Yu Gothic UI Bold" size="20.0" />
                </font>
             </Label>
-            <TableView fx:id="userTable" layoutY="70.0" prefHeight="295.0" prefWidth="295.0">
+            <TableView fx:id="userTable" layoutY="70.0" onKeyReleased="#selectElement" onMouseClicked="#selectElement" prefHeight="295.0" prefWidth="295.0">
               <columns>
                 <TableColumn fx:id="userCol" prefWidth="192.00002747774124" text="Nombre de Usuario" />
                   <TableColumn fx:id="rolCol" prefWidth="105.59992980957031" text="Rol" />
@@ -60,15 +61,24 @@
                <font>
                   <Font name="Yu Gothic UI Regular" size="14.0" />
                </font>
-            </TextField>
-            <Button minHeight="40.0" minWidth="100.0" mnemonicParsing="false" style="-fx-background-color: #1292B5;" text="Agregar" textFill="WHITE">
                <VBox.margin>
-                  <Insets left="40.0" right="10.0" top="30.0" />
+                  <Insets bottom="15.0" />
                </VBox.margin>
-               <font>
-                  <Font name="Yu Gothic UI Bold" size="14.0" />
-               </font>
-            </Button>
+            </TextField>
+            <HBox prefHeight="52.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="addUpBtn" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#addUp" style="-fx-background-color: #1292B5;" text="Agregar" textFill="WHITE">
+                     <font>
+                        <Font name="Yu Gothic UI Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="delBtn" disable="true" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#delete" style="-fx-background-color: red;" text="Eliminar" textFill="WHITE">
+                     <font>
+                        <Font name="Yu Gothic UI Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
          </children>
       </VBox>
    </children>
