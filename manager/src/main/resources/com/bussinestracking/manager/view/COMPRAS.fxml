@@ -22,11 +22,10 @@
             <Font name="Yu Gothic Light" size="15.0" />
          </font>
       </Label>
-      <ImageView fitHeight="49.0" fitWidth="58.0" layoutX="527.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="49.0" fitWidth="58.0" layoutX="527.0" layoutY="20.0" onMouseClicked="#principalStage" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../../../Downloads/Menu%20icono.png" />
+            <Image url="@Images/salir.png" />
          </image></ImageView>
-      <ImageView fitHeight="49.0" fitWidth="65.0" layoutX="511.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true" />
       <TableView layoutY="122.0" prefHeight="182.0" prefWidth="589.0" style="-fx-background-color: #C7DBE2;">
         <columns>
           <TableColumn prefWidth="99.20001220703125" text="PROVEEDOR" />
