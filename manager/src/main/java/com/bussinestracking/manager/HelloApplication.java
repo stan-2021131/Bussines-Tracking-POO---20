@@ -67,6 +67,15 @@ public class HelloApplication extends Application {
         }
     }
 
+    public void resumenContableView(){
+        try{
+            ResumenContableController ventanaResumen = (ResumenContableController)cambiarEscena("ResumenContable.fxml", 600, 400);
+            ventanaResumen.setPrincipalStage(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void reporteDiarioView(){
         try{
             ReporteDiarioController ventanaReporteDiario = (ReporteDiarioController)cambiarEscena("ReporteDiario.fxml", 600, 400);

@@ -5,7 +5,7 @@ import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ReporteDiarioController implements Initializable {
+public class ResumenContableController implements Initializable {
     private HelloApplication principalStage;
 
     public HelloApplication getPrincipalStage() {
