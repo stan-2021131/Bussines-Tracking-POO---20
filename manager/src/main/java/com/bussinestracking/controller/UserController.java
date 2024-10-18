@@ -9,10 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.bson.Document;
 
@@ -22,6 +19,7 @@ import java.util.ResourceBundle;
 
 public class UserController implements Initializable {
     boolean isSelected = false;
+    ObservableList<String> opRol = FXCollections.observableArrayList("ADMINISTRADOR", "TRABAJADOR");
     private HelloApplication principalPage;
     @FXML
     private TableView<Usuario> userTable;
@@ -38,7 +36,7 @@ public class UserController implements Initializable {
     @FXML
     private TextField passField;
     @FXML
-    private TextField rolField;
+    private ComboBox rolBox;
     private ObservableList<Usuario> users;
     Document us = new Document();
 
@@ -60,12 +58,12 @@ public class UserController implements Initializable {
         }else{
             userField.setText(String.valueOf(((Usuario)userTable.getSelectionModel().getSelectedItem()).getUsername()));
             passField.setText(String.valueOf(((Usuario)userTable.getSelectionModel().getSelectedItem()).getPassword()));
-            rolField.setText(String.valueOf(((Usuario)userTable.getSelectionModel().getSelectedItem()).getRol()));
+            rolBox.setValue(String.valueOf(((Usuario)userTable.getSelectionModel().getSelectedItem()).getRol()));
             addUpBtn.setText("Actualizar");
             addUpBtn.setDisable(false);
             passField.setDisable(true);
             delBtn.setDisable(false);
-            us.append("username", userField.getText()).append("password", passField.getText()).append("rol", rolField.getText());
+            us.append("username", userField.getText()).append("password", passField.getText()).append("rol", rolBox.getValue());
         }
     }
 
@@ -78,7 +76,7 @@ public class UserController implements Initializable {
             if(alreadyExist != null){
                 JOptionPane.showMessageDialog(null, "Ya existe un usuario con ese username, intenta con otro");
             }else {
-                Document document = new Document("username", userField.getText()).append("password", passField.getText()).append("rol", rolField.getText());
+                Document document = new Document("username", userField.getText()).append("password", passField.getText()).append("rol", rolBox.getValue());
                 collection.insertOne(document);
                 JOptionPane.showMessageDialog(null, "Nuevo trabajador agregado");
             }
@@ -87,7 +85,7 @@ public class UserController implements Initializable {
         } else if (addUpBtn.getText().equals("Actualizar")) {
             Document exist = collection.find(us).first();
             if(exist!=null){
-                Document newData = new Document("username", userField.getText()).append("password", passField.getText()).append("rol", rolField.getText()).append("rol", rolField.getText());
+                Document newData = new Document("username", userField.getText()).append("password", passField.getText()).append("rol", rolBox.getValue());
                 Document up = new Document("$set", newData);
                 collection.updateOne(exist, up);
                 JOptionPane.showMessageDialog(null, "Trabajador actualizado");
@@ -103,15 +101,20 @@ public class UserController implements Initializable {
     }
 
     public void delete(){
-        MongoDBConnection.conexion();
-        MongoCollection<Document> collection = MongoDBConnection.getDatabase().getCollection("Users");
-        Document exist = new Document("username", userField.getText()).append("password", passField.getText()).append("rol", rolField.getText()).append("rol", rolField.getText());
-        Document alreadyExist = collection.find(exist).first();
-        if(alreadyExist != null){
-            collection.deleteOne(alreadyExist);
-            JOptionPane.showMessageDialog(null, "Usuario eliminado");
+        int op = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+        if(op == JOptionPane.YES_OPTION){
+            MongoDBConnection.conexion();
+            MongoCollection<Document> collection = MongoDBConnection.getDatabase().getCollection("Users");
+            Document exist = new Document("username", userField.getText()).append("password", passField.getText()).append("rol", rolBox.getValue());
+            Document alreadyExist = collection.find(exist).first();
+            if(alreadyExist != null){
+                collection.deleteOne(alreadyExist);
+                JOptionPane.showMessageDialog(null, "Usuario eliminado");
+            }else{
+                JOptionPane.showMessageDialog(null, "Usuario no encontrado");
+            }
         }else{
-            JOptionPane.showMessageDialog(null, "Usuario no encontrado");
+            JOptionPane.showMessageDialog(null, "Se ha cancelado la eliminación");
         }
         clearControls();
         addUpBtn.setText("Agregar");
@@ -123,7 +126,7 @@ public class UserController implements Initializable {
     public void clearControls(){
         userField.clear();
         passField.clear();
-        rolField.clear();
+        rolBox.setValue(null);
         userTable.getSelectionModel().clearSelection();
         isSelected=false;
         us.clear();
@@ -145,6 +148,7 @@ public class UserController implements Initializable {
         rolCol.setCellValueFactory(new PropertyValueFactory<>("rol"));
         users = FXCollections.observableArrayList();
         userTable.setItems(users);
+        rolBox.setItems(opRol);
         getUsers();
     }
 }
