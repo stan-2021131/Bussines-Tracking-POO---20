@@ -18,7 +18,8 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage principalStage) throws Exception {
         this.principalStage = principalStage;
-        ventanaPrincipal();
+        menuView();
+        //ventanaPrincipal();
         principalStage.show();
     }
 
