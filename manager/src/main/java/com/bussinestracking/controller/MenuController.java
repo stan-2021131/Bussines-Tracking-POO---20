@@ -36,6 +36,7 @@ public class MenuController implements Initializable {
     public void resumenContableView() {
         principalPage.resumenContableView();
     }
+    public void categoriasView() {principalPage.categoriasView();}
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="366.0" prefWidth="597.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bussinestracking.controller.CategoriasController">
+   <children>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="394.0" prefWidth="596.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="70.0" prefWidth="598.0" style="-fx-background-color: #0097B2;" text="Categorías" textFill="WHITE">
+               <font>
+                  <Font name="Yu Gothic UI Bold" size="20.0" />
+               </font>
+            </Label>
+            <TableView fx:id="categoriaTable" layoutY="70.0" onKeyReleased="#selectElement" onMouseClicked="#selectElement" prefHeight="295.0" prefWidth="347.0">
+              <columns>
+                <TableColumn fx:id="nombCol" prefWidth="132.0" text="Nombre" />
+                  <TableColumn fx:id="descCol" prefWidth="216.0" text="Descripción" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#principalStage" prefHeight="32.0" prefWidth="78.0" style="-fx-background-color: red;" text="Menú" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic UI Bold" size="16.0" />
+         </font>
+      </Button>
+      <VBox layoutX="353.0" layoutY="72.0" prefHeight="280.0" prefWidth="182.0">
+         <children>
+            <Label prefHeight="54.0" prefWidth="218.0" text="Nombre">
+               <font>
+                  <Font name="Yu Gothic UI Regular" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nombField" prefHeight="42.0" prefWidth="182.0" promptText="Nombre de la categoría">
+               <font>
+                  <Font name="Yu Gothic UI Regular" size="14.0" />
+               </font>
+            </TextField>
+            <Label prefHeight="54.0" prefWidth="218.0" text="Descripción">
+               <font>
+                  <Font name="Yu Gothic UI Regular" size="14.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="descripArea" prefHeight="61.0" prefWidth="200.0" promptText="Ingrese la descripción de la categoría">
+               <VBox.margin>
+                  <Insets bottom="25.0" />
+               </VBox.margin>
+            </TextArea>
+            <HBox prefHeight="52.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="addUpBtn" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#addUp" style="-fx-background-color: #1292B5;" text="Agregar" textFill="WHITE">
+                     <font>
+                        <Font name="Yu Gothic UI Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="delBtn" disable="true" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#delete" style="-fx-background-color: red;" text="Eliminar" textFill="WHITE">
+                     <font>
+                        <Font name="Yu Gothic UI Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

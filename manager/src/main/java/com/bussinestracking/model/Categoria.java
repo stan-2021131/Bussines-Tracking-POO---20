@@ -1,23 +1,23 @@
 package com.bussinestracking.model;
 
 public class Categoria {
-    private int idCategoria;
+    private String idCategoria;
     private String nombre;
     private String descripcion;
 
     public Categoria() {
     }
-    public Categoria(int idCategoria,String nombre, String descripcion) {
+    public Categoria(String idCategoria,String nombre, String descripcion) {
         this.idCategoria = idCategoria;
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
 
-    public int getIdCategoria() {
+    public String getIdCategoria() {
         return idCategoria;
     }
 
-    public void setIdCategoria(int idCategoria) {
+    public void setIdCategoria(String idCategoria) {
         this.idCategoria = idCategoria;
     }
 

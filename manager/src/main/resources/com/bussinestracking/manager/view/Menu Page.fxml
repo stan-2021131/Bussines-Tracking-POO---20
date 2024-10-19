@@ -97,6 +97,20 @@
                         </ImageView>
                      </children>
                   </VBox>
+                  <VBox layoutX="608.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+                        <Label alignment="CENTER" onMouseClicked="#categoriasView" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: orange;" text="Categorías" textAlignment="CENTER">
+                           <font>
+                              <Font name="Yu Gothic UI Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="139.0" fitWidth="301.0" onMouseClicked="#categoriasView" pickOnBounds="true">
+                           <image>
+                              <Image url="@Images/categorias.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
                </children>
             </GridPane>
             <Label layoutX="339.0" layoutY="14.0" text="Menú Principal" textFill="WHITE">
