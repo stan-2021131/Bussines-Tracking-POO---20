@@ -23,8 +23,8 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bfe188" height="82.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-      <Label layoutX="219.0" layoutY="26.0" text="Reporte Diario">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1292b5" height="82.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <Label layoutX="219.0" layoutY="26.0" text="Reporte Diario" textFill="WHITE">
          <font>
             <Font name="Rockwell" size="24.0" />
          </font>

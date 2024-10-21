@@ -9,8 +9,8 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: skyblue;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bussinestracking.controller.ResumenContableController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bfe188" height="85.0" stroke="BLACK" strokeType="INSIDE" width="605.0" />
-      <Label layoutX="193.0" layoutY="27.0" text="Resumen Contable">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1292b5" height="85.0" stroke="WHITE" strokeType="INSIDE" width="605.0" />
+      <Label layoutX="193.0" layoutY="27.0" text="Resumen Contable" textFill="WHITE">
          <font>
             <Font name="Rockwell" size="25.0" />
          </font>
