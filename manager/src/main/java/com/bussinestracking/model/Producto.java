@@ -20,6 +20,7 @@ public class Producto {
         this.precioOriginal = precioOriginal;
         this.idCategoria = idCategoria;
     }
+    public Producto(String a, String b, String c) {}
 
     public int getIdProducto() {
         return idProducto;
