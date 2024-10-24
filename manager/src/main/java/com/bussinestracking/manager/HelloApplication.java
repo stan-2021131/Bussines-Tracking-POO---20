@@ -18,7 +18,8 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage principalStage) throws Exception {
         this.principalStage = principalStage;
-        ventanaPrincipal();
+       // ventanaPrincipal();
+        menuView();
         principalStage.show();
     }
 
@@ -42,7 +43,7 @@ public class HelloApplication extends Application {
 
     public void menuView(){
         try {
-            MenuController ventanaMenu = (MenuController)cambiarEscena("Menu Page.fxml", 895,511);
+            MenuController ventanaMenu = (MenuController)cambiarEscena("Menu Page.fxml", 895,731);
             ventanaMenu.setPrincipalPage(this);
         } catch (Exception e) {
             e.printStackTrace();
@@ -107,6 +108,15 @@ public class HelloApplication extends Application {
         try {
             CategoriasController ventanaCategorias = (CategoriasController) cambiarEscena("Categorias.fxml",597,366);
             ventanaCategorias.setPrincipalStage(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void proveedorView(){
+        try{
+            ProveedorController ventanaProveedor = (ProveedorController) cambiarEscena("Proveedor.fxml", 600, 400);
+            ventanaProveedor.setPrincipalStage(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
