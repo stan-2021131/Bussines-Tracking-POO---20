@@ -60,7 +60,7 @@ public class HelloApplication extends Application {
 
     public void inventarioView(){
         try{
-            InventarioController ventanaInventario = (InventarioController)cambiarEscena("Producto.fxml", 600, 400);
+            InventarioController ventanaInventario = (InventarioController)cambiarEscena("Producto.fxml", 865, 547);
             ventanaInventario.setPrincipalStage(this);
         } catch (Exception e) {
             e.printStackTrace();

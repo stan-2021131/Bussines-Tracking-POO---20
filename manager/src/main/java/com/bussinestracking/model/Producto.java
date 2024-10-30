@@ -7,11 +7,11 @@ public class Producto {
     private Short cantidad;
     private float precioVenta;
     private float precioOriginal;
-    private int idCategoria;
+    private Categoria idCategoria;
 
     public Producto() {}
     public Producto(int idProducto, String nombre, String descripcion, short cantidad,
-                    float precioVenta, float precioOriginal, int idCategoria) {
+                    float precioVenta, float precioOriginal, Categoria idCategoria) {
         this.idProducto = idProducto;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -70,11 +70,11 @@ public class Producto {
         this.precioOriginal = precioOriginal;
     }
 
-    public int getCategoria() {
+    public Categoria getCategoria() {
         return idCategoria;
     }
 
-    public void setCategoria(int idCategoria) {
+    public void setCategoria(Categoria idCategoria) {
         this.idCategoria = idCategoria;
     }
 }
