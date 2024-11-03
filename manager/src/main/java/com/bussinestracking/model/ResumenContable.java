@@ -6,14 +6,14 @@ public class ResumenContable {
     private int idResumen;
     private float totalCompras;
     private float totalVentas;
-    private Date fechaCreacion;
+
 
     public ResumenContable() {}
-    public ResumenContable(int idResumen, float totalCompras, float totalVentas, Date fechaCreacion) {
+    public ResumenContable(int idResumen, float totalCompras, float totalVentas ) {
         this.idResumen = idResumen;
         this.totalCompras = totalCompras;
         this.totalVentas = totalVentas;
-        this.fechaCreacion = fechaCreacion;
+
     }
 
     public int getIdResumen() {
@@ -39,12 +39,5 @@ public class ResumenContable {
     public void setTotalVentas(float totalVentas) {
         this.totalVentas = totalVentas;
     }
-
-    public Date getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(Date fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
     }
 }
