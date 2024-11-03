@@ -21,18 +21,27 @@ import java.util.ResourceBundle;
 
 public class InventarioController implements Initializable {
     private HelloApplication principalStage;
-    String[] parametros2 = {"_idProducto", "nombreProducto", "descripcionProducto"};
+    String[] parametros = {"_idProducto", "nombre", "descripcion", "cantidad", "precioVenta", "precioOrignal", "categoria"};
     public HelloApplication getPrincipalStage() {
         return principalStage;
     }
     boolean isSelected = false;
 
+
     @FXML
-    private TableView<Producto> productoTable;
+    private TableView<Producto> tvProducto;
     @FXML
     private TableColumn<Producto, String> nombCol;
     @FXML
     private TableColumn<Producto, String> descCol;
+    @FXML
+    private TableColumn<Producto, Short> cantCol;
+    @FXML
+    private TableColumn<Producto, Float> preVenCol;
+    @FXML
+    private TableColumn<Producto, Float> preComCol;
+    @FXML
+    private TableColumn<Producto, String> catCol;
     @FXML
     private TextField nombField;
     @FXML
@@ -50,49 +59,49 @@ public class InventarioController implements Initializable {
         MongoCollection<Document> data = MongoDBConnection.getDatabase().getCollection("Categories");
         FindIterable<Document> iterable = data.find();
         for (Document document : iterable) {
-            Producto producto = new Producto(document.getObjectId(parametros2[0]).toString(), document.getString(parametros2[1]), document.getString(parametros2[2]));
+            Producto producto = new Producto(document.getObjectId(parametros[0]).toString(), document.getString(parametros[1]), document.getString(parametros[2]));
             productos.add(producto);
         }
         MongoDBConnection.close();
     }
 
     public void selectElement(){
-        if(productoTable.getSelectionModel().getSelectedItem() == null){
+        if(tvProducto.getSelectionModel().getSelectedItem() == null){
             JOptionPane.showMessageDialog(null,"No se ha seleccionado un elemento de la tabla");
         }else{
             isSelected = true;
-            String id = String.valueOf(((Producto)productoTable.getSelectionModel().getSelectedItem()).getIdProducto());
-            nombField.setText(String.valueOf(((Producto)productoTable.getSelectionModel().getSelectedItem()).getNombre()));
-            descripArea.setText(String.valueOf(((Producto)productoTable.getSelectionModel().getSelectedItem()).getDescripcion()));
+            String id = String.valueOf(((Producto)tvProducto.getSelectionModel().getSelectedItem()).getIdProducto());
+            nombField.setText(String.valueOf(((Producto)tvProducto.getSelectionModel().getSelectedItem()).getNombre()));
+            descripArea.setText(String.valueOf(((Producto)tvProducto.getSelectionModel().getSelectedItem()).getDescripcion()));
             addUpBtn.setText("Actualizar");
             addUpBtn.setDisable(false);
             delBtn.setDisable(false);
-            pro.append(parametros2[0], new ObjectId(id));
+            pro.append(parametros[0], new ObjectId(id));
         }
     }
 
     public void addUp(){
         MongoDBConnection.conexion();
-        MongoCollection<Document> collection = MongoDBConnection.getDatabase().getCollection("Categories");
+        MongoCollection<Document> collection = MongoDBConnection.getDatabase().getCollection("Products");
         if(addUpBtn.getText().equals("Agregar")){
-            Document exist = new Document(parametros2[1], nombField.getText());
+            Document exist = new Document(parametros[1], nombField.getText());
             Document alreadyExist = collection.find(exist).first();
             if(alreadyExist != null){
-                JOptionPane.showMessageDialog(null,"Ya existe una categoría con este nombre.");
+                JOptionPane.showMessageDialog(null,"Ya existe un producto con este nombre.");
             }else{
-                Document newCat = new Document(parametros2[1], nombField.getText()).append(parametros2[2], descripArea.getText());
-                collection.insertOne(newCat);
-                JOptionPane.showMessageDialog(null, "Nueva categoría agregada.");
+                Document newPro = new Document(parametros[1], nombField.getText()).append(parametros[2], descripArea.getText());
+                collection.insertOne(newPro);
+                JOptionPane.showMessageDialog(null, "Nuevo producto agregado.");
             }
         } else if (addUpBtn.getText().equals("Actualizar")) {
             Document exist = collection.find(pro).first();
             if(exist != null){
-                Document newData = new Document(parametros2[1], nombField.getText()).append(parametros2[2], descripArea.getText());
+                Document newData = new Document(parametros[1], nombField.getText()).append(parametros[2], descripArea.getText());
                 Document up = new Document("$set", newData);
                 collection.updateOne(exist, up);
-                JOptionPane.showMessageDialog(null, "Categoría actualizada.");
+                JOptionPane.showMessageDialog(null, "Producto actualizado.");
             }else{
-                JOptionPane.showMessageDialog(null,"No se ha encotrado la categoría");
+                JOptionPane.showMessageDialog(null,"No se ha encotrado el producto");
             }
             addUpBtn.setText("Agregar");
             delBtn.setDisable(true);
@@ -102,17 +111,17 @@ public class InventarioController implements Initializable {
     }
 
     public void delete(){
-        int op = JOptionPane.showConfirmDialog(null, "¿Desea eliminar la categoría?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+        int op = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el producto?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
         if(op == JOptionPane.YES_OPTION){
             MongoDBConnection.conexion();
-            MongoCollection<Document> collection = MongoDBConnection.getDatabase().getCollection("Categories");
-            Document exist = new Document(parametros2[1], nombField.getText()).append(parametros2[2], descripArea.getText());
+            MongoCollection<Document> collection = MongoDBConnection.getDatabase().getCollection("Products");
+            Document exist = new Document(parametros[1], nombField.getText()).append(parametros[2], descripArea.getText());
             Document alreadyExist = collection.find(exist).first();
             if(alreadyExist != null){
                 collection.deleteOne(alreadyExist);
-                JOptionPane.showMessageDialog(null, "Categoría eliminada");
+                JOptionPane.showMessageDialog(null, "Producto eliminado");
             }else{
-                JOptionPane.showMessageDialog(null, "Categoría no encontrada");
+                JOptionPane.showMessageDialog(null, "Producto no encontrado");
             }
         }else{
             JOptionPane.showMessageDialog(null, "Se ha cancelado la eliminación");
@@ -126,10 +135,11 @@ public class InventarioController implements Initializable {
     public void clearControls(){
         nombField.clear();
         descripArea.clear();
-        productoTable.getSelectionModel().clearSelection();
+        tvProducto.getSelectionModel().clearSelection();
         isSelected = false;
         pro.clear();
     }
+
     public void setPrincipalStage(HelloApplication principalStage) {
         this.principalStage = principalStage;
     }
@@ -139,5 +149,15 @@ public class InventarioController implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {}
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        nombCol.setCellValueFactory(new PropertyValueFactory<>(parametros[1]));
+        descCol.setCellValueFactory(new PropertyValueFactory<>(parametros[2]));
+        cantCol.setCellValueFactory(new PropertyValueFactory<>(parametros[3]));;
+        preVenCol.setCellValueFactory(new PropertyValueFactory<>(parametros[4]));;
+        preComCol.setCellValueFactory(new PropertyValueFactory<>(parametros[5]));;
+        catCol.setCellValueFactory(new PropertyValueFactory<>(parametros[6]));;
+        productos = FXCollections.observableArrayList();
+        getProductos();
+        tvProducto.setItems(productos);
+    }
 }

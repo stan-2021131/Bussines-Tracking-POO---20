@@ -1,7 +1,7 @@
 package com.bussinestracking.model;
 
 public class Producto {
-    private int idProducto;
+    private String idProducto;
     private String nombre;
     private String descripcion;
     private Short cantidad;
@@ -10,7 +10,7 @@ public class Producto {
     private Categoria idCategoria;
 
     public Producto() {}
-    public Producto(int idProducto, String nombre, String descripcion, short cantidad,
+    public Producto(String idProducto, String nombre, String descripcion, short cantidad,
                     float precioVenta, float precioOriginal, Categoria idCategoria) {
         this.idProducto = idProducto;
         this.nombre = nombre;
@@ -22,11 +22,11 @@ public class Producto {
     }
     public Producto(String a, String b, String c) {}
 
-    public int getIdProducto() {
+    public String getIdProducto() {
         return idProducto;
     }
 
-    public void setIdProducto(int idProducto) {
+    public void setIdProducto(String idProducto) {
         this.idProducto = idProducto;
     }
 

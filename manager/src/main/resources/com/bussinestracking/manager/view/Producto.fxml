@@ -24,26 +24,26 @@
             <Font name="Yu Gothic UI Regular" size="16.0" />
          </font>
       </Button>
-      <TableView layoutX="14.0" layoutY="100.0" prefHeight="347.0" prefWidth="554.0">
+      <TableView fx:id="tvProducto" layoutX="14.0" layoutY="100.0" prefHeight="347.0" prefWidth="554.0">
         <columns>
-          <TableColumn prefWidth="105.60000801086426" text="Nombre" />
-            <TableColumn prefWidth="88.79998779296875" text="Categoria" />
-            <TableColumn prefWidth="128.00006103515625" text="Descripción" />
-          <TableColumn prefWidth="80.0000228881836" text="Precio venta" />
-            <TableColumn prefWidth="88.00006103515625" text="Precio compra" />
-            <TableColumn minWidth="7.20001220703125" prefWidth="61.600067138671875" text="Cantidad" />
+          <TableColumn fx:id="nombCol" prefWidth="105.60000801086426" text="Nombre" />
+            <TableColumn fx:id="catCol" prefWidth="88.79998779296875" text="Categoria" />
+            <TableColumn fx:id="descCol" prefWidth="128.00006103515625" text="Descripción" />
+          <TableColumn fx:id="preVenCol" prefWidth="80.0000228881836" text="Precio venta" />
+            <TableColumn fx:id="preComCol" prefWidth="88.00006103515625" text="Precio compra" />
+            <TableColumn fx:id="cantCol" minWidth="7.20001220703125" prefWidth="61.600067138671875" text="Cantidad" />
         </columns>
       </TableView>
       <VBox layoutX="590.0" layoutY="100.0" prefHeight="374.0" prefWidth="253.0">
          <children>
             <Label prefHeight="18.0" prefWidth="79.0" text="Nombre" />
-            <TextField prefHeight="39.0" prefWidth="227.0" />
+            <TextField fx:id="nombField" prefHeight="39.0" prefWidth="227.0" />
             <Label text="Precio de venta" />
             <TextField prefHeight="41.0" prefWidth="227.0" />
             <Label text="Categoria" />
-            <ComboBox prefHeight="26.0" prefWidth="237.0" />
+            <ComboBox fx:id="cmbCategoria" prefHeight="26.0" prefWidth="237.0" />
             <Label text="Descripción" />
-            <TextArea prefHeight="200.0" prefWidth="200.0" />
+            <TextArea fx:id="descripArea" prefHeight="200.0" prefWidth="200.0" />
             <Label prefHeight="18.0" prefWidth="120.0" text="Precio de compra" />
             <TextField prefHeight="26.0" prefWidth="227.0" />
             <Label text="Cantidad" />
@@ -51,12 +51,12 @@
             <HBox prefHeight="45.0" prefWidth="223.0" />
          </children>
       </VBox>
-      <Button layoutX="741.0" layoutY="490.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="102.0" style="-fx-background-color: red;" text="Eliminar" textFill="WHITE">
+      <Button fx:id="delBtn" layoutX="741.0" layoutY="490.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="102.0" style="-fx-background-color: red;" text="Eliminar" textFill="WHITE">
          <font>
             <Font name="Yu Gothic UI Regular" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="618.0" layoutY="490.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="98.0" style="-fx-background-color: #1292B5;" text="Agregar" textFill="WHITE">
+      <Button fx:id="addUpBtn" layoutX="618.0" layoutY="490.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="98.0" style="-fx-background-color: #1292B5;" text="Agregar" textFill="WHITE">
          <font>
             <Font name="Yu Gothic UI Regular" size="14.0" />
          </font>
