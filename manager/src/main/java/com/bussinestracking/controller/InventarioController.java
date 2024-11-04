@@ -15,13 +15,15 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
+import javax.print.Doc;
 import javax.swing.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class InventarioController implements Initializable {
     private HelloApplication principalStage;
-    String[] parametros = {"_idProducto", "nombre", "descripcion", "cantidad", "precioVenta", "precioOrignal", "categoria"};
+    String[] parametros = {"_id", "nombre", "descripcion", "cantidad", "precioVenta", "precioOriginal", "categoria"};
+    String[] parametros2 = {"_id", "nombre", "descripcion"};
     public HelloApplication getPrincipalStage() {
         return principalStage;
     }
@@ -50,29 +52,73 @@ public class InventarioController implements Initializable {
     private Button addUpBtn;
     @FXML
     private Button delBtn;
+    @FXML
+    private TextField textPreV;
+    @FXML
+    private TextField textPreC;
+    @FXML
+    private TextField textCant;
+    @FXML
+    private ComboBox<Categoria> cmbCategoria;
     private ObservableList<Producto> productos;
+    private ObservableList<Categoria> categorias;
     Document pro = new Document();
 
     private void getProductos() {
         productos.clear();
         MongoDBConnection.conexion();
-        MongoCollection<Document> data = MongoDBConnection.getDatabase().getCollection("Categories");
+        MongoCollection<Document> data = MongoDBConnection.getDatabase().getCollection("Products");
         FindIterable<Document> iterable = data.find();
         for (Document document : iterable) {
-            Producto producto = new Producto(document.getObjectId(parametros[0]).toString(), document.getString(parametros[1]), document.getString(parametros[2]));
+            String id = document.getObjectId(parametros[0]).toString();
+            String nombre = document.getString(parametros[1]);
+            String descripcion = document.getString(parametros[2]);
+            Integer cant = document.getInteger(parametros[3]);
+            Short cantidad = (cant != null) ? document.getInteger(parametros[3]).shortValue(): 0;
+            Double preV = document.getDouble(parametros[4]);
+            float precioVenta = (preV != null) ? document.getDouble(parametros[4]).floatValue() : 0;
+            Double preC = document.getDouble(parametros[5]);
+            float precioCompra = (preC != null) ? document.getDouble(parametros[5]).floatValue() : 0;
+            Categoria newCategoria = null;
+            Document categoria = document.get(parametros[6], Document.class);
+            if(categoria != null) {
+                newCategoria = new Categoria(
+                        categoria.getString(parametros2[0]),
+                        categoria.getString(parametros2[1]),
+                        categoria.getString(parametros[2])
+                );
+            }
+            Producto producto = new Producto(id, nombre, descripcion , cantidad, precioVenta, precioCompra , newCategoria);
             productos.add(producto);
         }
         MongoDBConnection.close();
     }
 
+    private void getCategorias() {
+        categorias.clear();
+        MongoDBConnection.conexion();
+        MongoCollection<Document> data = MongoDBConnection.getDatabase().getCollection("Categories");
+        FindIterable<Document> iterable = data.find();
+        for (Document document : iterable) {
+            Categoria categoria = new Categoria(document.getObjectId(parametros2[0]).toString(), document.getString(parametros2[1]), document.getString(parametros2[2]));
+            categorias.add(categoria);
+        }
+        MongoDBConnection.close();
+    }
+
     public void selectElement(){
-        if(tvProducto.getSelectionModel().getSelectedItem() == null){
+        Producto producto = tvProducto.getSelectionModel().getSelectedItem();
+        if(producto == null){
             JOptionPane.showMessageDialog(null,"No se ha seleccionado un elemento de la tabla");
         }else{
             isSelected = true;
-            String id = String.valueOf(((Producto)tvProducto.getSelectionModel().getSelectedItem()).getIdProducto());
-            nombField.setText(String.valueOf(((Producto)tvProducto.getSelectionModel().getSelectedItem()).getNombre()));
-            descripArea.setText(String.valueOf(((Producto)tvProducto.getSelectionModel().getSelectedItem()).getDescripcion()));
+            String id = String.valueOf(producto.getIdProducto());
+            nombField.setText(String.valueOf(producto.getNombre()));
+            descripArea.setText(String.valueOf(producto.getDescripcion()));
+            textPreV.setText(String.valueOf(producto.getPrecioVenta()));
+            textPreC.setText(String.valueOf(producto.getPrecioOriginal()));
+            textCant.setText(String.valueOf(producto.getCantidad()));
+            cmbCategoria.setValue(producto.getCategoria());
             addUpBtn.setText("Actualizar");
             addUpBtn.setDisable(false);
             delBtn.setDisable(false);
@@ -89,15 +135,33 @@ public class InventarioController implements Initializable {
             if(alreadyExist != null){
                 JOptionPane.showMessageDialog(null,"Ya existe un producto con este nombre.");
             }else{
-                Document newPro = new Document(parametros[1], nombField.getText()).append(parametros[2], descripArea.getText());
+                Categoria cat = cmbCategoria.getValue();
+                Document categoria = new Document(parametros2[0], cat.getIdCategoria())
+                        .append(parametros2[1], cat.getNombre())
+                        .append(parametros2[2], cat.getDescripcion());
+                Document newPro = new Document(parametros[1], nombField.getText())
+                        .append(parametros[2], descripArea.getText())
+                        .append(parametros[3], Short.parseShort(textCant.getText()))
+                        .append(parametros[4], Double.parseDouble(textPreV.getText()))
+                        .append(parametros[5], Double.parseDouble(textPreC.getText()))
+                        .append(parametros[6], categoria);
                 collection.insertOne(newPro);
                 JOptionPane.showMessageDialog(null, "Nuevo producto agregado.");
             }
         } else if (addUpBtn.getText().equals("Actualizar")) {
             Document exist = collection.find(pro).first();
             if(exist != null){
-                Document newData = new Document(parametros[1], nombField.getText()).append(parametros[2], descripArea.getText());
-                Document up = new Document("$set", newData);
+                Categoria cat = cmbCategoria.getValue();
+                Document categoria = new Document(parametros2[0], cat.getIdCategoria())
+                        .append(parametros2[1], cat.getNombre())
+                        .append(parametros2[2], cat.getDescripcion());
+                Document newPro = new Document(parametros[1], nombField.getText())
+                        .append(parametros[2], descripArea.getText())
+                        .append(parametros[3], Short.parseShort(textCant.getText()))
+                        .append(parametros[4], Double.parseDouble(textPreV.getText()))
+                        .append(parametros[5], Double.parseDouble(textPreC.getText()))
+                        .append(parametros[6], categoria);
+                Document up = new Document("$set", newPro);
                 collection.updateOne(exist, up);
                 JOptionPane.showMessageDialog(null, "Producto actualizado.");
             }else{
@@ -135,6 +199,10 @@ public class InventarioController implements Initializable {
     public void clearControls(){
         nombField.clear();
         descripArea.clear();
+        textPreV.clear();
+        textPreC.clear();
+        textCant.clear();
+        cmbCategoria.setValue(null);
         tvProducto.getSelectionModel().clearSelection();
         isSelected = false;
         pro.clear();
@@ -156,6 +224,9 @@ public class InventarioController implements Initializable {
         preVenCol.setCellValueFactory(new PropertyValueFactory<>(parametros[4]));;
         preComCol.setCellValueFactory(new PropertyValueFactory<>(parametros[5]));;
         catCol.setCellValueFactory(new PropertyValueFactory<>(parametros[6]));;
+        categorias = FXCollections.observableArrayList();
+        getCategorias();
+        cmbCategoria.setItems(categorias);
         productos = FXCollections.observableArrayList();
         getProductos();
         tvProducto.setItems(productos);

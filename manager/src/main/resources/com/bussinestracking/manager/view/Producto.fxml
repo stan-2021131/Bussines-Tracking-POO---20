@@ -24,7 +24,7 @@
             <Font name="Yu Gothic UI Regular" size="16.0" />
          </font>
       </Button>
-      <TableView fx:id="tvProducto" layoutX="14.0" layoutY="100.0" prefHeight="347.0" prefWidth="554.0">
+      <TableView fx:id="tvProducto" layoutX="14.0" layoutY="100.0" onKeyPressed="#selectElement" onMouseClicked="#selectElement" prefHeight="347.0" prefWidth="554.0">
         <columns>
           <TableColumn fx:id="nombCol" prefWidth="105.60000801086426" text="Nombre" />
             <TableColumn fx:id="catCol" prefWidth="88.79998779296875" text="Categoria" />
@@ -39,24 +39,24 @@
             <Label prefHeight="18.0" prefWidth="79.0" text="Nombre" />
             <TextField fx:id="nombField" prefHeight="39.0" prefWidth="227.0" />
             <Label text="Precio de venta" />
-            <TextField prefHeight="41.0" prefWidth="227.0" />
+            <TextField fx:id="textPreV" prefHeight="41.0" prefWidth="227.0" />
             <Label text="Categoria" />
             <ComboBox fx:id="cmbCategoria" prefHeight="26.0" prefWidth="237.0" />
             <Label text="Descripción" />
             <TextArea fx:id="descripArea" prefHeight="200.0" prefWidth="200.0" />
             <Label prefHeight="18.0" prefWidth="120.0" text="Precio de compra" />
-            <TextField prefHeight="26.0" prefWidth="227.0" />
+            <TextField fx:id="textPreC" prefHeight="26.0" prefWidth="227.0" />
             <Label text="Cantidad" />
-            <TextField prefHeight="38.0" prefWidth="227.0" />
+            <TextField fx:id="textCant" prefHeight="38.0" prefWidth="227.0" />
             <HBox prefHeight="45.0" prefWidth="223.0" />
          </children>
       </VBox>
-      <Button fx:id="delBtn" layoutX="741.0" layoutY="490.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="102.0" style="-fx-background-color: red;" text="Eliminar" textFill="WHITE">
+      <Button fx:id="delBtn" disable="true" layoutX="741.0" layoutY="490.0" mnemonicParsing="false" onAction="#delete" prefHeight="39.0" prefWidth="102.0" style="-fx-background-color: red;" text="Eliminar" textFill="WHITE">
          <font>
             <Font name="Yu Gothic UI Regular" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="addUpBtn" layoutX="618.0" layoutY="490.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="98.0" style="-fx-background-color: #1292B5;" text="Agregar" textFill="WHITE">
+      <Button fx:id="addUpBtn" layoutX="618.0" layoutY="490.0" mnemonicParsing="false" onAction="#addUp" prefHeight="39.0" prefWidth="98.0" style="-fx-background-color: #1292B5;" text="Agregar" textFill="WHITE">
          <font>
             <Font name="Yu Gothic UI Regular" size="14.0" />
          </font>
