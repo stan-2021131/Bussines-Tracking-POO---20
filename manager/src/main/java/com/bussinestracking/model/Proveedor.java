@@ -1,22 +1,22 @@
 package com.bussinestracking.model;
 
 public class Proveedor {
-    private int idproveedor;
+    private String idproveedor;
     private String nombre;
     private String descripcion;
 
     public Proveedor() {}
-    public Proveedor(int idproveedor, String nombre, String descripcion) {
+    public Proveedor(String idproveedor, String nombre, String descripcion) {
         this.idproveedor = idproveedor;
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
 
-    public int getIdproveedor() {
+    public String getIdproveedor() {
         return idproveedor;
     }
 
-    public void setIdproveedor(int idproveedor) {
+    public void setIdproveedor(String idproveedor) {
         this.idproveedor = idproveedor;
     }
 
