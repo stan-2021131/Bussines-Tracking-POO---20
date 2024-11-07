@@ -62,6 +62,7 @@ public class ProveedorController implements Initializable{
             isSelected = true;
             String id = String.valueOf(((Proveedor)tablaprov.getSelectionModel().getSelectedItem()).getIdproveedor());
             nombreprov.setText(String.valueOf(((Proveedor)tablaprov.getSelectionModel().getSelectedItem()).getNombre()));
+            descripcionprov.setText(String.valueOf(((Proveedor)tablaprov.getSelectionModel().getSelectedItem()).getDescripcion()));
             agregarprov.setText("Actualizar");
             agregarprov.setDisable(false);
             eliminarprov.setDisable(false);
@@ -80,7 +81,7 @@ public class ProveedorController implements Initializable{
     public void addUp(){
         MongoDBConnection.conexion();
         MongoCollection<Document> collection = MongoDBConnection.getDatabase().getCollection("Supplier");
-        if (agregarprov.getText().equals("Actualizar")) {
+        if (agregarprov.getText().equals("Agregar")) {
             Document exist = new Document(parametros[1], nombreprov.getText());
             Document alreadyExist = collection.find(exist).first();
             if (alreadyExist != null) {

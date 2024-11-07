@@ -23,7 +23,7 @@
             <Font name="Yu Gothic UI Regular" size="16.0" />
          </font>
       </Button>
-      <TableView fx:id="tablaprov" layoutX="21.0" layoutY="94.0" prefHeight="257.0" prefWidth="306.0">
+      <TableView fx:id="tablaprov" layoutX="21.0" layoutY="94.0" onKeyPressed="#selectElement" onMouseClicked="#selectElement" prefHeight="257.0" prefWidth="306.0">
         <columns>
           <TableColumn fx:id="nombrecolprov" prefWidth="127.20001220703125" text="Nombre" />
           <TableColumn fx:id="descripcolprov" minWidth="8.79998779296875" prefWidth="179.20001220703125" text="Descripción" />
@@ -37,12 +37,12 @@
             <TextField fx:id="descripcionprov" prefHeight="99.0" prefWidth="224.0" />
             <HBox prefHeight="45.0" prefWidth="161.0">
                <children>
-                  <Button fx:id="agregarprov" mnemonicParsing="false" prefHeight="34.0" prefWidth="74.0" style="-fx-background-color: #1292B5;" text="Agregar" textFill="WHITE">
+                  <Button fx:id="agregarprov" mnemonicParsing="false" onAction="#addUp" prefHeight="34.0" prefWidth="74.0" style="-fx-background-color: #1292B5;" text="Agregar" textFill="WHITE">
                      <font>
                         <Font name="Yu Gothic UI Regular" size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="eliminarprov" mnemonicParsing="false" prefHeight="34.0" prefWidth="77.0" style="-fx-background-color: red;" text="Eliminar" textFill="WHITE">
+                  <Button fx:id="eliminarprov" disable="true" mnemonicParsing="false" onAction="#delete" prefHeight="34.0" prefWidth="77.0" style="-fx-background-color: red;" text="Eliminar" textFill="WHITE">
                      <font>
                         <Font name="Yu Gothic UI Regular" size="14.0" />
                      </font>
