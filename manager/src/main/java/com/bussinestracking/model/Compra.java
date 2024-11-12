@@ -3,48 +3,52 @@ package com.bussinestracking.model;
 import java.util.ArrayList;
 
 public class Compra {
-    private int idCompra;
-    private int idProveedor;
-    private ArrayList<Integer> productos;
-    private float total;
+    private String idCompra;
+    private Proveedor idProveedor;
+    private String productos;
+    private int cantidad;
+    private float precio;
 
     public Compra() {}
-    public Compra(int idCompra, int idProveedor, ArrayList<Integer> productos, float total) {
+    public Compra(String idCompra, Proveedor idProveedor,String productos, int cantidad, float precio) {
         this.idCompra = idCompra;
         this.idProveedor = idProveedor;
         this.productos = productos;
-        this.total = total;
+        this.cantidad = cantidad;
+        this.precio = precio;
     }
 
-    public int getIdCompra() {
+    public String getIdCompra() {
         return idCompra;
     }
 
-    public void setIdCompra(int idCompra) {
+    public void setIdCompra(String idCompra) {
         this.idCompra = idCompra;
     }
 
-    public int getIdProveedor() {
+    public Proveedor getIdProveedor() {
         return idProveedor;
     }
 
-    public void setIdProveedor(int idProveedor) {
+    public void setIdProveedor(Proveedor idProveedor) {
         this.idProveedor = idProveedor;
     }
 
-    public ArrayList<Integer> getProductos() {
+    public String getProductos() {
         return productos;
     }
 
-    public void setProductos(ArrayList<Integer> productos) {
+    public void setProductos(String productos) {
         this.productos = productos;
     }
 
-    public float getTotal() {
-        return total;
+    public int getCantidad() {
+        return cantidad;
     }
 
-    public void setTotal(float total) {
-        this.total = total;
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
+    public float getPrecio() {return precio;}
+    public void setPrecio(float precio) {this.precio = precio;}
 }

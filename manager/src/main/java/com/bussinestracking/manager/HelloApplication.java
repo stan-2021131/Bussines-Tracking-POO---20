@@ -97,7 +97,7 @@ public class HelloApplication extends Application {
 
     public void comprasView(){
         try{
-            ComprasController ventanaCompras = (ComprasController)cambiarEscena("COMPRAS.fxml", 600, 400);
+            ComprasController ventanaCompras = (ComprasController)cambiarEscena("COMPRAS.fxml", 730, 400);
             ventanaCompras.setPrincipalStage(this);
         } catch (Exception e) {
             e.printStackTrace();
