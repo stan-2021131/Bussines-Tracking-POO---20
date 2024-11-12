@@ -1,6 +1,7 @@
 package com.bussinestracking.controller;
 
 import com.bussinestracking.manager.HelloApplication;
+import com.bussinestracking.model.Carrito;
 import com.bussinestracking.model.Categoria;
 import com.bussinestracking.model.MongoDBConnection;
 import com.bussinestracking.model.Producto;
@@ -18,6 +19,7 @@ import org.bson.types.ObjectId;
 import javax.print.Doc;
 import javax.swing.*;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class InventarioController implements Initializable {
@@ -44,6 +46,8 @@ public class InventarioController implements Initializable {
     private TableColumn<Producto, Float> preComCol;
     @FXML
     private TableColumn<Producto, String> catCol;
+    @FXML
+    private TableColumn<Producto, Void> actCol;
     @FXML
     private TextField nombField;
     @FXML
@@ -208,6 +212,51 @@ public class InventarioController implements Initializable {
         pro.clear();
     }
 
+    public void btnActions(){
+        actCol.setCellFactory(col -> new TableCell<Producto, Void>(){
+            private final Button btn = new Button("Agregar al carrito");
+            {
+                btn.setOnAction(event -> {
+                    Producto pro = tvProducto.getItems().get(getIndex());
+                    addToCart(pro);
+                });
+            }
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(btn);
+                }
+            }
+        });
+    }
+
+    public void addToCart(Producto pro){
+        TextInputDialog dialog = new TextInputDialog("1");
+        dialog.setTitle("Agregar al carrito");
+        dialog.setHeaderText("Seleccione la cantidad de productos que desea agregar");
+        dialog.setContentText("Cantidad:");
+
+        Optional<String> result = dialog.showAndWait();
+        result.ifPresent(cant -> {
+            try {
+                int cantidad = Integer.parseInt(cant);
+                if(cantidad >0){
+                    JOptionPane.showMessageDialog(null, "Producto agregado al carrito: " + pro.getNombre() + "\nDiríjase a la ventana de ventas para completar la acción");
+                    Carrito.agregarProducto(pro, (short)cantidad);
+                } else if (cantidad > pro.getCantidad()) {
+                    JOptionPane.showMessageDialog(null, "La cantidad sobrepasa las existencias");
+                } else{
+                    JOptionPane.showMessageDialog(null, "La cantidad debe ser mayor a 0");
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Ingrese un valor numérico válido");
+            }
+        });
+    }
+
     public void setPrincipalStage(HelloApplication principalStage) {
         this.principalStage = principalStage;
     }
@@ -230,5 +279,6 @@ public class InventarioController implements Initializable {
         productos = FXCollections.observableArrayList();
         getProductos();
         tvProducto.setItems(productos);
+        btnActions();
     }
 }
