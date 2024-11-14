@@ -56,7 +56,6 @@ public class VentasController implements Initializable {
     private HelloApplication principalStage;
 
     private ObservableList<Venta> ventas;
-    private ArrayList<Producto> productos = new ArrayList<Producto>();
     Document vent = new Document();
 
     private void getVentas(){
@@ -71,6 +70,7 @@ public class VentasController implements Initializable {
             float total = doc.getDouble(parametros[4]).floatValue();
             String formaPago = doc.getString(parametros[5]);
             Date fecha = doc.getDate(parametros[6]);
+            List<Producto> productoList = new ArrayList<>();
             List<Document> producto =(List<Document>) doc.get(parametros[3]);
             if(producto != null){
                 for(Document doc2: producto){
@@ -80,16 +80,13 @@ public class VentasController implements Initializable {
                     pro.setCantidad(doc2.getInteger(parametros2[2]).shortValue());
                     pro.setPrecioVenta(doc2.getDouble(parametros2[3]).floatValue());
                     pro.setPrecioOriginal(doc2.getDouble(parametros2[4]).floatValue());
-                    productos.add(pro);
+                    productoList.add(pro);
                 }
             }
-            Venta newVenta = new Venta(id, cliente, nit, productos, total, formaPago,fecha);
+            Venta newVenta = new Venta(id, cliente, nit, productoList, total, formaPago,fecha);
             ventas.add(newVenta);
         }
         MongoDBConnection.close();
-        if(productos.isEmpty()){
-            productos.clear();
-        }
     }
 
     public void add(){
@@ -120,9 +117,23 @@ public class VentasController implements Initializable {
             collection.insertOne(newVenta);
             JOptionPane.showMessageDialog(null, "Nueva venta hecha");
             updateCant();
+            upVentas(total);
             getVentas();
         }
         clearControls();
+    }
+
+    public void upVentas(float newVentas){
+        MongoDBConnection.conexion();
+        MongoCollection<Document> collection = MongoDBConnection.getDatabase().getCollection("Summary");
+        Document resumen = collection.find().first();
+        if(resumen != null){
+            float ventasActual = resumen.getDouble("totalVentas").floatValue();
+            float upVentas = ventasActual + newVentas;
+            Document update = new Document("$set", new Document("totalVentas", upVentas));
+            collection.updateOne(new Document("_id", resumen.getObjectId("_id")), update);
+        }
+        MongoDBConnection.close();
     }
 
     public void updateCant(){

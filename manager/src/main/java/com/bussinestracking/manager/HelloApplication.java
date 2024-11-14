@@ -43,7 +43,7 @@ public class HelloApplication extends Application {
 
     public void menuView(){
         try {
-            MenuController ventanaMenu = (MenuController)cambiarEscena("Menu Page.fxml", 895,731);
+            MenuController ventanaMenu = (MenuController)cambiarEscena("Menu Page.fxml", 895,577);
             ventanaMenu.setPrincipalPage(this);
         } catch (Exception e) {
             e.printStackTrace();
@@ -70,7 +70,7 @@ public class HelloApplication extends Application {
 
     public void resumenContableView(){
         try{
-            ResumenContableController ventanaResumen = (ResumenContableController)cambiarEscena("ResumenContable.fxml", 600, 400);
+            ResumenContableController ventanaResumen = (ResumenContableController)cambiarEscena("ResumenContable.fxml", 490, 354);
             ventanaResumen.setPrincipalStage(this);
         } catch (Exception e) {
             e.printStackTrace();
