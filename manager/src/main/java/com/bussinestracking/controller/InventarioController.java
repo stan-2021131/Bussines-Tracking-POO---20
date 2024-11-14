@@ -243,13 +243,13 @@ public class InventarioController implements Initializable {
         result.ifPresent(cant -> {
             try {
                 int cantidad = Integer.parseInt(cant);
-                if(cantidad >0){
+                if(cantidad > pro.getCantidad()){
+                    JOptionPane.showMessageDialog(null, "La cantidad sobrepasa las existencias");
+                } else if (cantidad <1) {
+                    JOptionPane.showMessageDialog(null, "La cantidad debe ser mayor a 0");
+                }else{
                     JOptionPane.showMessageDialog(null, "Producto agregado al carrito: " + pro.getNombre() + "\nDiríjase a la ventana de ventas para completar la acción");
                     Carrito.agregarProducto(pro, (short)cantidad);
-                } else if (cantidad > pro.getCantidad()) {
-                    JOptionPane.showMessageDialog(null, "La cantidad sobrepasa las existencias");
-                } else{
-                    JOptionPane.showMessageDialog(null, "La cantidad debe ser mayor a 0");
                 }
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Ingrese un valor numérico válido");

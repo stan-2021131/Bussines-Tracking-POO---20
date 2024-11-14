@@ -88,7 +88,7 @@ public class HelloApplication extends Application {
 
     public void ventasView(){
         try{
-            VentasController ventanaVentas = (VentasController)cambiarEscena("Ventas.fxml", 600, 400);
+            VentasController ventanaVentas = (VentasController)cambiarEscena("Ventas.fxml", 1047, 472);
             ventanaVentas.setPrincipalStage(this);
         } catch (Exception e) {
             e.printStackTrace();

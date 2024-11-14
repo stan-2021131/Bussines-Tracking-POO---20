@@ -20,6 +20,13 @@ public class Producto {
         this.precioOriginal = precioOriginal;
         this.idCategoria = idCategoria;
     }
+    public Producto(String idProducto, String nombre, Short cantidad, float precioVenta, float precioOriginal) {
+        this.idProducto = idProducto;
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.precioVenta = precioVenta;
+        this.precioOriginal = precioOriginal;
+    }
     public Producto(String a, String b, String c) {}
 
     public String getIdProducto() {
