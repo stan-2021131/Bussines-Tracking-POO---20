@@ -33,6 +33,7 @@ import java.util.ResourceBundle;
 public class VentasController implements Initializable {
     String[] parametros = {"_id", "cliente", "nit", "idProductos", "total", "formaPago", "fecha"};
     String[] parametros2 = {"_id", "nombre", "cantidad", "precioVenta", "precioOriginal"};
+    ObservableList<String> formasDePago = FXCollections.observableArrayList("Efectivo", "Tarjeta de crédito", "Tarjeta de débito");
     @FXML
     private TableView<Venta> tblVentas;
     @FXML
@@ -52,7 +53,7 @@ public class VentasController implements Initializable {
     @FXML
     private TextField nitField;
     @FXML
-    private TextField formaPagoField;
+    private ComboBox<String> formaPagoField;
     private HelloApplication principalStage;
 
     private ObservableList<Venta> ventas;
@@ -112,7 +113,7 @@ public class VentasController implements Initializable {
                     .append(parametros[2], nitField.getText())
                     .append(parametros[3], productosDoc)
                     .append(parametros[4], (float)total)
-                    .append(parametros[5], formaPagoField.getText())
+                    .append(parametros[5], formaPagoField.getValue())
                     .append(parametros[6], dateNow);
             collection.insertOne(newVenta);
             JOptionPane.showMessageDialog(null, "Nueva venta hecha");
@@ -193,7 +194,7 @@ public class VentasController implements Initializable {
     public void clearControls(){
         nombField.clear();
         nitField.clear();
-        formaPagoField.clear();
+        formaPagoField.setValue(null);
     }
 
     public void formatDate(){
@@ -236,5 +237,6 @@ public class VentasController implements Initializable {
         getVentas();
         tblVentas.setItems(ventas);
         btnActions();
+        formaPagoField.setItems(formasDePago);
     }
 }
