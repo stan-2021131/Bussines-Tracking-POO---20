@@ -14,12 +14,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bussinestracking.controller.LoginController">
    <children>
-      <ImageView fitHeight="426.0" fitWidth="430.0" layoutX="-31.0" layoutY="-24.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="426.0" fitWidth="430.0" layoutX="-31.0" layoutY="-24.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.046875" AnchorPane.leftAnchor="-31.0" AnchorPane.topAnchor="-24.0">
          <image>
             <Image url="@Images/store-4156934_1280.png" />
          </image>
       </ImageView>
-      <Pane layoutX="386.0" prefHeight="400.0" prefWidth="214.0" style="-fx-background-color: white;">
+      <Pane layoutX="386.0" prefHeight="400.0" prefWidth="214.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="-0.4000000000000057" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutY="41.0" prefHeight="29.0" prefWidth="214.0" text="Gestor de negocios">
                <font>

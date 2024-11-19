@@ -10,18 +10,18 @@
 
 <AnchorPane prefHeight="354.0" prefWidth="490.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bussinestracking.controller.ResumenContableController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1292b5" height="85.0" stroke="WHITE" strokeType="INSIDE" width="489.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1292b5" height="85.0" stroke="WHITE" strokeType="INSIDE" width="489.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0" />
       <Label layoutX="81.0" layoutY="27.0" text="Resumen Contable" textFill="WHITE">
          <font>
             <Font name="Rockwell" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="57.0" layoutY="128.0" text="Total Invertido">
+      <Label layoutX="57.0" layoutY="128.0" text="Total Invertido" AnchorPane.leftAnchor="57.0" AnchorPane.topAnchor="128.0">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="compLabel" alignment="CENTER_RIGHT" layoutX="253.0" layoutY="125.0" prefHeight="31.0" prefWidth="192.0" text="0" textAlignment="RIGHT">
+      <Label fx:id="compLabel" alignment="CENTER_RIGHT" layoutX="253.0" layoutY="125.0" prefHeight="31.0" prefWidth="192.0" text="0" textAlignment="RIGHT" AnchorPane.topAnchor="128.0">
          <font>
             <Font name="Rockwell" size="18.0" />
          </font>
@@ -56,7 +56,7 @@
             <Font name="Sitka Small" size="24.0" />
          </font>
       </Label>
-      <ImageView fitHeight="62.0" fitWidth="57.0" layoutX="409.0" layoutY="14.0" onMouseClicked="#principalStage" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="62.0" fitWidth="57.0" layoutX="409.0" layoutY="14.0" onMouseClicked="#principalStage" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="14.0">
          <image>
             <Image url="@Images/salir.png" />
          </image>

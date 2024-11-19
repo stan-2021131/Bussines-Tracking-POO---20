@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="547.0" prefWidth="1217.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bussinestracking.controller.InventarioController">
    <children>
-      <Label alignment="CENTER" prefHeight="70.0" prefWidth="1217.0" style="-fx-background-color: #0097B2;" text="Producto" textFill="WHITE">
+      <Label alignment="CENTER" prefHeight="70.0" prefWidth="1217.0" style="-fx-background-color: #0097B2;" text="Producto" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <font>
             <Font name="Yu Gothic UI Bold" size="20.0" />
          </font>
@@ -24,7 +24,7 @@
             <Font name="Yu Gothic UI Regular" size="16.0" />
          </font>
       </Button>
-      <TableView fx:id="tvProducto" layoutX="14.0" layoutY="100.0" onKeyPressed="#selectElement" onMouseClicked="#selectElement" prefHeight="347.0" prefWidth="927.0">
+      <TableView fx:id="tvProducto" layoutX="14.0" layoutY="100.0" onKeyPressed="#selectElement" onMouseClicked="#selectElement" prefHeight="347.0" prefWidth="927.0" AnchorPane.bottomAnchor="99.80000000000001" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="99.80000000000001">
         <columns>
           <TableColumn fx:id="nombCol" prefWidth="126.39999103546143" text="Nombre" />
             <TableColumn fx:id="catCol" prefWidth="131.2000274658203" text="Categoria" />
@@ -34,8 +34,11 @@
             <TableColumn fx:id="cantCol" minWidth="7.20001220703125" prefWidth="124.79998779296875" text="Cantidad" />
             <TableColumn fx:id="actCol" minWidth="7.20001220703125" prefWidth="119.199951171875" text="Acciones" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
-      <VBox layoutX="949.0" layoutY="100.0" prefHeight="374.0" prefWidth="253.0">
+      <VBox layoutX="949.0" layoutY="100.0" prefHeight="374.0" prefWidth="253.0" AnchorPane.bottomAnchor="72.60000000000002" AnchorPane.leftAnchor="948.7999999999998" AnchorPane.rightAnchor="14.999999999999915" AnchorPane.topAnchor="100.0">
          <children>
             <Label prefHeight="18.0" prefWidth="79.0" text="Nombre" />
             <TextField fx:id="nombField" prefHeight="39.0" prefWidth="227.0" />
@@ -52,12 +55,12 @@
             <HBox prefHeight="45.0" prefWidth="223.0" />
          </children>
       </VBox>
-      <Button fx:id="delBtn" disable="true" layoutX="1100.0" layoutY="490.0" mnemonicParsing="false" onAction="#delete" prefHeight="39.0" prefWidth="102.0" style="-fx-background-color: red;" text="Eliminar" textFill="WHITE">
+      <Button fx:id="delBtn" disable="true" layoutX="1100.0" layoutY="490.0" mnemonicParsing="false" onAction="#delete" prefHeight="39.0" prefWidth="102.0" style="-fx-background-color: red;" text="Eliminar" textFill="WHITE" AnchorPane.bottomAnchor="17.60000000000001">
          <font>
             <Font name="Yu Gothic UI Regular" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="addUpBtn" layoutX="959.0" layoutY="490.0" mnemonicParsing="false" onAction="#addUp" prefHeight="39.0" prefWidth="98.0" style="-fx-background-color: #1292B5;" text="Agregar" textFill="WHITE">
+      <Button fx:id="addUpBtn" layoutX="959.0" layoutY="490.0" mnemonicParsing="false" onAction="#addUp" prefHeight="39.0" prefWidth="98.0" style="-fx-background-color: #1292B5;" text="Agregar" textFill="WHITE" AnchorPane.bottomAnchor="17.799999999999997" AnchorPane.rightAnchor="160.1999999999999">
          <font>
             <Font name="Yu Gothic UI Regular" size="14.0" />
          </font>

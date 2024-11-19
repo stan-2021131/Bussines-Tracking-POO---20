@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bussinestracking.controller.MenuController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bussinestracking.controller.MenuController">
    <children>
-      <Pane prefHeight="578.0" prefWidth="898.0" style="-fx-background-color: #1292B5;">
+      <Pane prefHeight="578.0" prefWidth="898.0" style="-fx-background-color: #1292B5;" AnchorPane.bottomAnchor="-1.3999999999999773" AnchorPane.leftAnchor="-0.1999999999999318" AnchorPane.rightAnchor="-3.3999999999999773" AnchorPane.topAnchor="0.0">
          <children>
             <GridPane layoutY="77.0" prefHeight="400.0" prefWidth="898.0">
               <columnConstraints>
@@ -29,7 +29,7 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Label alignment="CENTER" onMouseClicked="#inventario" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: red;" text="Inventario" textAlignment="CENTER" textFill="WHITE">
+                        <Label alignment="CENTER" onMouseClicked="#inventario" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: red;" text="Productos" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Yu Gothic UI Bold" size="20.0" />
                            </font>
@@ -57,7 +57,7 @@
                   </VBox>
                   <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <Label alignment="CENTER" onMouseClicked="#comprasView" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #004AAD;" text="Compras" textAlignment="CENTER" textFill="WHITE">
+                        <Label alignment="CENTER" onMouseClicked="#comprasView" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #17c930;" text="Compras" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Yu Gothic UI Bold" size="20.0" />
                            </font>
