@@ -20,6 +20,13 @@ public class Producto {
         this.precioOriginal = precioOriginal;
         this.idCategoria = idCategoria;
     }
+    public Producto(String idProducto, String nombre, Short cantidad, float precioVenta, float precioOriginal) {
+        this.idProducto = idProducto;
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.precioVenta = precioVenta;
+        this.precioOriginal = precioOriginal;
+    }
     public Producto(String a, String b, String c) {}
 
     public String getIdProducto() {
@@ -76,5 +83,18 @@ public class Producto {
 
     public void setCategoria(Categoria idCategoria) {
         this.idCategoria = idCategoria;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Producto producto = (Producto) obj;
+        return nombre.equals(producto.nombre);
+    }
+
+    @Override
+    public int hashCode() {
+        return nombre.hashCode();
     }
 }

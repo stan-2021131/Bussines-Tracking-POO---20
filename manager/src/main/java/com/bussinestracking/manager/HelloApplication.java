@@ -43,7 +43,7 @@ public class HelloApplication extends Application {
 
     public void menuView(){
         try {
-            MenuController ventanaMenu = (MenuController)cambiarEscena("Menu Page.fxml", 895,731);
+            MenuController ventanaMenu = (MenuController)cambiarEscena("Menu Page.fxml", 895,577);
             ventanaMenu.setPrincipalPage(this);
         } catch (Exception e) {
             e.printStackTrace();
@@ -61,7 +61,7 @@ public class HelloApplication extends Application {
 
     public void inventarioView(){
         try{
-            InventarioController ventanaInventario = (InventarioController)cambiarEscena("Producto.fxml", 865, 547);
+            InventarioController ventanaInventario = (InventarioController)cambiarEscena("Producto.fxml", 1217, 547);
             ventanaInventario.setPrincipalStage(this);
         } catch (Exception e) {
             e.printStackTrace();
@@ -70,7 +70,7 @@ public class HelloApplication extends Application {
 
     public void resumenContableView(){
         try{
-            ResumenContableController ventanaResumen = (ResumenContableController)cambiarEscena("ResumenContable.fxml", 600, 400);
+            ResumenContableController ventanaResumen = (ResumenContableController)cambiarEscena("ResumenContable.fxml", 490, 354);
             ventanaResumen.setPrincipalStage(this);
         } catch (Exception e) {
             e.printStackTrace();
@@ -88,7 +88,7 @@ public class HelloApplication extends Application {
 
     public void ventasView(){
         try{
-            VentasController ventanaVentas = (VentasController)cambiarEscena("Ventas.fxml", 600, 400);
+            VentasController ventanaVentas = (VentasController)cambiarEscena("Ventas.fxml", 1047, 472);
             ventanaVentas.setPrincipalStage(this);
         } catch (Exception e) {
             e.printStackTrace();

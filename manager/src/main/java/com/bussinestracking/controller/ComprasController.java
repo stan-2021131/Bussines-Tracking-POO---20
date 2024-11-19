@@ -87,11 +87,24 @@ public class ComprasController implements Initializable {
         Document docprov = new Document(parametrosprov[0], proveedor2.getIdproveedor()).append(parametrosprov[1], proveedor2.getNombre()).append(parametrosprov[2], proveedor2.getDescripcion());
         Document doccompra = new Document(parametros[1], docprov).append(parametros[2], productocompra.getText()).append(parametros[3], Integer.parseInt(cantidadcompra.getText())).append(parametros[4], Float.parseFloat(preciocompra.getText()));
         collection.insertOne(doccompra);
+        upCompras((Integer.parseInt(cantidadcompra.getText()) * Float.parseFloat(preciocompra.getText())));
         JOptionPane.showMessageDialog(null, "Compra agregada");
         getCompras();
         clearControls();
     }
 
+    public void upCompras(float newCompra){
+        MongoDBConnection.conexion();
+        MongoCollection<Document> collection = MongoDBConnection.getDatabase().getCollection("Summary");
+        Document resumen = collection.find().first();
+        if(resumen != null){
+            float comprasActual = resumen.getDouble("totalCompras").floatValue();
+            float upVentas = comprasActual + newCompra;
+            Document update = new Document("$set", new Document("totalCompras", upVentas));
+            collection.updateOne(new Document("_id", resumen.getObjectId("_id")), update);
+        }
+        MongoDBConnection.close();
+    }
 
     public HelloApplication getPrincipalStage() {
         return principalStage;

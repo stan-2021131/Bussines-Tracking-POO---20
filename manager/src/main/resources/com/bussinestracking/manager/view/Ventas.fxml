@@ -5,16 +5,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="547.0" prefWidth="865.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bussinestracking.controller.InventarioController">
+<AnchorPane prefHeight="472.0" prefWidth="1047.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bussinestracking.controller.VentasController">
    <children>
-      <Label alignment="CENTER" prefHeight="70.0" prefWidth="866.0" style="-fx-background-color: #0097B2;" text="Ventas" textFill="WHITE">
+      <Label alignment="CENTER" prefHeight="70.0" prefWidth="1047.0" style="-fx-background-color: #0097B2;" text="Ventas" textFill="WHITE">
          <font>
             <Font name="Yu Gothic UI Bold" size="20.0" />
          </font>
@@ -24,48 +22,33 @@
             <Font name="Yu Gothic UI Regular" size="16.0" />
          </font>
       </Button>
-      <TableView fx:id="tvProducto" layoutX="14.0" layoutY="100.0" onKeyPressed="#selectElement" onMouseClicked="#selectElement" prefHeight="347.0" prefWidth="554.0">
+      <TableView fx:id="tblVentas" layoutX="14.0" layoutY="100.0" prefHeight="347.0" prefWidth="733.0">
          <columns>
-            <TableColumn fx:id="nombCol" prefWidth="98.39999198913574" text="Nombre" />
-            <TableColumn fx:id="descCol" prefWidth="123.19998931884766" text="Descripción" />
-            <TableColumn fx:id="preVenCol" prefWidth="122.39996337890625" text="Precio venta" />
-            <TableColumn fx:id="preComCol" prefWidth="130.4000244140625" text="Precio compra" />
-            <TableColumn fx:id="cantCol" minWidth="7.20001220703125" prefWidth="79.99996948242188" text="Cantidad" />
+            <TableColumn fx:id="nombCol" prefWidth="171.99999713897705" text="Nombre del cliente" />
+            <TableColumn fx:id="nitCol" prefWidth="122.40000915527344" text="NIT" />
+            <TableColumn fx:id="totalCol" prefWidth="85.5999755859375" text="Total" />
+            <TableColumn fx:id="formaPCol" prefWidth="148.79998779296875" text="Forma de pago" />
+            <TableColumn fx:id="fechaCol" minWidth="7.20001220703125" prefWidth="91.20001220703125" text="Fecha" />
+            <TableColumn fx:id="prodCol" minWidth="7.20001220703125" prefWidth="113.60003662109375" text="Productos" />
          </columns>
       </TableView>
-      <VBox layoutX="590.0" layoutY="100.0" prefHeight="374.0" prefWidth="253.0">
+      <VBox layoutX="770.0" layoutY="132.0" prefHeight="201.0" prefWidth="254.0">
          <children>
-            <Label prefHeight="18.0" prefWidth="79.0" text="Nombre" />
+            <Label prefHeight="18.0" prefWidth="119.0" text="Nombre del cliente" />
             <TextField fx:id="nombField" prefHeight="39.0" prefWidth="227.0" />
-            <Label text="Descripción">
+            <Label text="NIT">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin></Label>
-            <TextArea fx:id="descripArea" prefHeight="77.0" prefWidth="254.0" />
-            <Label text="Precio de venta">
+            <TextField fx:id="nitField" layoutX="10.0" layoutY="28.0" prefHeight="39.0" prefWidth="227.0" />
+            <Label prefHeight="18.0" prefWidth="120.0" text="Forma de pago">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin></Label>
-            <TextField fx:id="textPreV" prefHeight="41.0" prefWidth="227.0" />
-            <Label prefHeight="18.0" prefWidth="120.0" text="Precio de compra">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin></Label>
-            <TextField fx:id="textPreC" prefHeight="26.0" prefWidth="227.0" />
-            <Label text="Cantidad">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin></Label>
-            <TextField fx:id="textCant" prefHeight="38.0" prefWidth="227.0" />
-            <HBox prefHeight="45.0" prefWidth="223.0" />
+            <TextField fx:id="formaPagoField" prefHeight="38.0" prefWidth="254.0" />
          </children>
       </VBox>
-      <Button fx:id="delBtn" disable="true" layoutX="741.0" layoutY="490.0" mnemonicParsing="false" onAction="#delete" prefHeight="39.0" prefWidth="102.0" style="-fx-background-color: red;" text="Eliminar" textFill="WHITE">
-         <font>
-            <Font name="Yu Gothic UI Regular" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="addUpBtn" layoutX="618.0" layoutY="490.0" mnemonicParsing="false" onAction="#addUp" prefHeight="39.0" prefWidth="98.0" style="-fx-background-color: #1292B5;" text="Agregar" textFill="WHITE">
+      <Button fx:id="addUpBtn" layoutX="848.0" layoutY="356.0" mnemonicParsing="false" onAction="#add" prefHeight="39.0" prefWidth="98.0" style="-fx-background-color: #1292B5;" text="Agregar" textFill="WHITE">
          <font>
             <Font name="Yu Gothic UI Regular" size="14.0" />
          </font>

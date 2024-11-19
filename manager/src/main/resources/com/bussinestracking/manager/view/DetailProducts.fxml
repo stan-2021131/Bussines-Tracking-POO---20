@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="416.0" prefWidth="566.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bussinestracking.controller.DetailProductsController">
+   <children>
+      <Label alignment="CENTER" prefHeight="70.0" prefWidth="566.0" style="-fx-background-color: #0097B2;" text="Productos Adquiridos" textFill="WHITE">
+         <font>
+            <Font name="Yu Gothic UI Bold" size="20.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblDetails" layoutX="14.0" layoutY="100.0" prefHeight="295.0" prefWidth="536.0">
+         <columns>
+            <TableColumn fx:id="nombCol" prefWidth="140.00003337860107" text="Nombre" />
+            <TableColumn fx:id="cantCol" prefWidth="89.60003662109375" text="Cantidad" />
+            <TableColumn fx:id="preVCol" prefWidth="173.6000213623047" text="Precio de venta" />
+            <TableColumn fx:id="preOCol" prefWidth="132.0" text="Precio original" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -2,18 +2,19 @@ package com.bussinestracking.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Venta {
-    private int idVenta;
+    private String idVenta;
     private String cliente;
     private String nit;
-    private ArrayList<Integer> idProductos;
+    private List<Producto> idProductos;
     private float total;
     private String formaPago;
     private Date fecha;
 
     public Venta() {}
-    public Venta(int idVenta, String cliente, String nit, ArrayList<Integer> idProductos, float total, String formaPago, Date fecha) {
+    public Venta(String idVenta, String cliente, String nit, List<Producto> idProductos, float total, String formaPago, Date fecha) {
         this.idVenta = idVenta;
         this.cliente = cliente;
         this.nit = nit;
@@ -23,11 +24,11 @@ public class Venta {
         this.fecha = fecha;
     }
 
-    public int getIdVenta() {
+    public String getIdVenta() {
         return idVenta;
     }
 
-    public void setIdVenta(int idVenta) {
+    public void setIdVenta(String idVenta) {
         this.idVenta = idVenta;
     }
 
@@ -47,11 +48,11 @@ public class Venta {
         this.nit = nit;
     }
 
-    public ArrayList<Integer> getIdProductos() {
+    public List<Producto> getIdProductos() {
         return idProductos;
     }
 
-    public void setIdProductos(ArrayList<Integer> idProductos) {
+    public void setIdProductos(List<Producto> idProductos) {
         this.idProductos = idProductos;
     }
 

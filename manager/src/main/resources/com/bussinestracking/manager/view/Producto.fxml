@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="547.0" prefWidth="865.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bussinestracking.controller.InventarioController">
+<AnchorPane prefHeight="547.0" prefWidth="1217.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bussinestracking.controller.InventarioController">
    <children>
-      <Label alignment="CENTER" prefHeight="70.0" prefWidth="866.0" style="-fx-background-color: #0097B2;" text="Producto" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <Label alignment="CENTER" prefHeight="70.0" prefWidth="1217.0" style="-fx-background-color: #0097B2;" text="Producto" textFill="WHITE">
          <font>
             <Font name="Yu Gothic UI Bold" size="20.0" />
          </font>
@@ -24,17 +24,18 @@
             <Font name="Yu Gothic UI Regular" size="16.0" />
          </font>
       </Button>
-      <TableView fx:id="tvProducto" layoutX="14.0" layoutY="100.0" onKeyPressed="#selectElement" onMouseClicked="#selectElement" prefHeight="347.0" prefWidth="554.0" AnchorPane.bottomAnchor="99.80000000000001" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="296.20000000000005" AnchorPane.topAnchor="99.80000000000001">
+      <TableView fx:id="tvProducto" layoutX="14.0" layoutY="100.0" onKeyPressed="#selectElement" onMouseClicked="#selectElement" prefHeight="347.0" prefWidth="927.0">
         <columns>
-          <TableColumn fx:id="nombCol" prefWidth="105.60000801086426" text="Nombre" />
-            <TableColumn fx:id="catCol" prefWidth="88.79998779296875" text="Categoria" />
-            <TableColumn fx:id="descCol" prefWidth="128.00006103515625" text="Descripción" />
-          <TableColumn fx:id="preVenCol" prefWidth="80.0000228881836" text="Precio venta" />
-            <TableColumn fx:id="preComCol" prefWidth="88.00006103515625" text="Precio compra" />
-            <TableColumn fx:id="cantCol" minWidth="7.20001220703125" prefWidth="61.600067138671875" text="Cantidad" />
+          <TableColumn fx:id="nombCol" prefWidth="126.39999103546143" text="Nombre" />
+            <TableColumn fx:id="catCol" prefWidth="131.2000274658203" text="Categoria" />
+            <TableColumn fx:id="descCol" prefWidth="228.79998779296875" text="Descripción" />
+          <TableColumn fx:id="preVenCol" prefWidth="89.60000610351562" text="Precio venta" />
+            <TableColumn fx:id="preComCol" prefWidth="104.0" text="Precio compra" />
+            <TableColumn fx:id="cantCol" minWidth="7.20001220703125" prefWidth="124.79998779296875" text="Cantidad" />
+            <TableColumn fx:id="actCol" minWidth="7.20001220703125" prefWidth="119.199951171875" text="Acciones" />
         </columns>
       </TableView>
-      <VBox layoutX="590.0" layoutY="100.0" prefHeight="374.0" prefWidth="253.0" AnchorPane.bottomAnchor="72.60000000000002" AnchorPane.rightAnchor="21.400000000000006" AnchorPane.topAnchor="99.80000000000001">
+      <VBox layoutX="949.0" layoutY="100.0" prefHeight="374.0" prefWidth="253.0">
          <children>
             <Label prefHeight="18.0" prefWidth="79.0" text="Nombre" />
             <TextField fx:id="nombField" prefHeight="39.0" prefWidth="227.0" />
@@ -51,12 +52,12 @@
             <HBox prefHeight="45.0" prefWidth="223.0" />
          </children>
       </VBox>
-      <Button fx:id="delBtn" disable="true" layoutX="741.0" layoutY="483.0" mnemonicParsing="false" onAction="#delete" prefHeight="39.0" prefWidth="102.0" style="-fx-background-color: red;" text="Eliminar" textFill="WHITE" AnchorPane.bottomAnchor="24.799999999999955" AnchorPane.rightAnchor="21.600000000000023">
+      <Button fx:id="delBtn" disable="true" layoutX="1100.0" layoutY="490.0" mnemonicParsing="false" onAction="#delete" prefHeight="39.0" prefWidth="102.0" style="-fx-background-color: red;" text="Eliminar" textFill="WHITE">
          <font>
             <Font name="Yu Gothic UI Regular" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="addUpBtn" layoutX="590.0" layoutY="483.0" mnemonicParsing="false" onAction="#addUp" prefHeight="39.0" prefWidth="98.0" style="-fx-background-color: #1292B5;" text="Agregar" textFill="WHITE" AnchorPane.bottomAnchor="24.799999999999997" AnchorPane.rightAnchor="176.6">
+      <Button fx:id="addUpBtn" layoutX="959.0" layoutY="490.0" mnemonicParsing="false" onAction="#addUp" prefHeight="39.0" prefWidth="98.0" style="-fx-background-color: #1292B5;" text="Agregar" textFill="WHITE">
          <font>
             <Font name="Yu Gothic UI Regular" size="14.0" />
          </font>
